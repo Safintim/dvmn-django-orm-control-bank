@@ -14,11 +14,11 @@ def passcard_info_view(request, passcode):
             data_visit = {
                 'entered_at': visit.entered_at,
                 'duration': visit.leaved_at - visit.entered_at,
+                'is_strange': False
             }
         if is_visit_long(visit):
             data_visit['is_strange'] = True
-        else:
-            data_visit['is_strange'] = False
+
         this_passcard_visits.append(data_visit)
 
     context = {

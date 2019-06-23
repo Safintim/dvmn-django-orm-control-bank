@@ -2,17 +2,20 @@ from datacenter.models import Passcard
 from datacenter.models import Visit
 from django.shortcuts import render
 from django.utils import timezone
+import datetime
 
 
 def storage_information_view(request):
     non_closed_visits = []
     now = timezone.now()
 
-    for visitor in Visit.objects.filter(leaved_at=None):
+    for visit in Visit.objects.filter(leaved_at=None):
+        duration = now - visit.entered_at
         non_closed_visits.append({
-            "who_entered": visitor.passcard.owner_name,
-            "entered_at": visitor.entered_at,
-            "duration": now - visitor.entered_at,
+            "who_entered": visit.passcard.owner_name,
+            "date": visit.entered_at,
+            "duration": duration,
+            'is_strange': duration > datetime.timedelta(minutes=60)
         })
 
     context = {
