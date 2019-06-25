@@ -30,6 +30,4 @@ def passcard_info_view(request, passcode):
 
 def is_visit_long(visit, minutes=60):
     if visit.leaved_at:
-        if visit.leaved_at - visit.entered_at > datetime.timedelta(minutes=minutes):
-            return True
-    return False
+        return visit.leaved_at - visit.entered_at > datetime.timedelta(minutes=minutes)
