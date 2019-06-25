@@ -21,8 +21,21 @@ cd dvmn-django-orm-control-bank
 pip3 install -r requirements.txt
 ```
 
-3. Запустить проект
+3. Требуется создать .env файл, с персональными настройками ввида:
+
+```.env
+DB_HOST=your_host
+DB_PORT=your_port
+DB_NAME=your_name
+DB_USER=your_username
+DB_PASSWORD=your_password
+SECRET_KEY=your_secret_key
+```
+
+4. Запустить проект
 
 ```sh
-python3 main.py
+python3 manage.py runserver
 ```
+
+Перейти по адресу http://127.0.0.1:8000/
