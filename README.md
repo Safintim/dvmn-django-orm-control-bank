@@ -23,13 +23,16 @@ pip3 install -r requirements.txt
 
 3. Требуется создать .env файл, с персональными настройками ввида:
 
+*DJANGO_DEBUG на производственном сервере False*. При True отображает детальную информацию об ошибке.
+
 ```.env
 DB_HOST=your_host
 DB_PORT=your_port
 DB_NAME=your_name
 DB_USER=your_username
 DB_PASSWORD=your_password
-SECRET_KEY=your_secret_key
+DJANGO_SECRET_KEY=your_secret_key
+DJANGO_DEBUG=False
 ```
 
 4. Запустить проект
